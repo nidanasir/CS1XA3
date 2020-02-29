@@ -74,3 +74,12 @@ fi
 
 if [ "$6" == feature6 ] ; then
         gitlog=$(git log -1 --oneline | grep -i 'merge')
+fi
+
+if [ "$7" == feature7 ]; then
+        sorted=$(ps -eo user,pid,pri,ni,cmd --sort=-priority)
+fi
+
+if [ "$8" == feature8 ]; then
+       find .. -type f -exec uniq -u {} \; > removedlines.log
+fi
