@@ -74,6 +74,7 @@ fi
 
 if [ "$6" == feature6 ] ; then
         gitlog=$(git log -1 --oneline | grep -i 'merge')
+	echo $gitlog
 fi
 
 if [ "$7" == feature7 ]; then
