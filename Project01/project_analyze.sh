@@ -63,12 +63,6 @@ if [ "$4" == feature4 ]; then
 
 fi
 
-if [ "$7" == feature7 ]; then
-        :> sortedprocesses.log
-        sorted=$(ps -eo user,pid,pri,ni,cmd --sort=-priority)
-        echo $sorted > 'sortedprocesses.log'
-fi
-
 if [ "$5" == feature5 ] ; then
         :> tag.log
         read -p "type in a tag: " prompt
