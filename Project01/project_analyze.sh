@@ -81,5 +81,5 @@ if [ "$7" == feature7 ]; then
 fi
 
 if [ "$8" == feature8 ]; then
-       find .. -type f -exec uniq -u {} \; > removedlines.log
+       find .. -type f -exec uniq -u {} \; 
 fi
