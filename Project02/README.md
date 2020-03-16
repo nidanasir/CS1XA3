@@ -1,7 +1,7 @@
 # CS 1XA3 Project02 - <nasirn4>
 
 ## Overview
-This webpage is <Nida Nasir>'s custom CV including Work Experience, ExtraCurricular Activities, Skills, Education and Personal Projects. It also includes contact information for employer's use.
+This webpage is Nida Nasir's custom CV including Work Experience, ExtraCurricular Activities, Skills, Education and Personal Projects. It also includes contact information for employer's use.
 
 ## Custom Javascript Code
 
@@ -20,7 +20,7 @@ This feature slowly types out an introduction paragraph in order to grab the att
    element.classList.toggle("dark-mode");
 }
 ```
--The following snippets of javascript code were altered from (https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_typewriter)
+- The following snippets of javascript code were altered from (https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_typewriter)
 ```;(function typeWriter() {
   if (i < txt.length) {
     document.getElementById("demo").innerHTML += txt.charAt(i);
