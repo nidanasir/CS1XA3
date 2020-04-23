@@ -1,0 +1,31 @@
+# CS 1XA3 Project02 - <nasirn4>
+
+## Overview
+This webpage is Nida Nasir's custom CV including Work Experience, ExtraCurricular Activities, Skills, Education and Personal Projects. It also includes contact information for employer's use.
+
+## Custom Javascript Code
+
+### Features
+1. **Dark Mode Toggle**:
+This feature enables the user to toggle between the light mode and dark mode. The background colour changes from white to black and the black text switches to white text.
+
+2. **Slowly Typing**:
+This feature slowly types out an introduction paragraph in order to grab the attention of the employee.
+
+## References
+- The html document used the following HTML Template from html5up (https://html5up.net/phantom)
+- The following snippets of javascript code were altered from (https://www.w3schools.com/howto/howto_js_toggle_dark_mode.asp)
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+```
+- The following snippets of javascript code were altered from (https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_typewriter)
+```;(function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+})()
+```
