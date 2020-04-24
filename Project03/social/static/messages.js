@@ -3,7 +3,12 @@
    ********************************************************************************************
    */
 function submitPost(event) {
-    alert('Post Button Pressed');
+    let postID = event.targed.id;
+    let json_data = { 'postID' : postID };
+    let url_path = post_submit_url;
+    $.post(url_path,
+           json_data, submitResponse);
+    alert(text)
     // TODO Objective 8: send contents of post-text via AJAX Post to post_submit_view (reload page upon success)
 }
 

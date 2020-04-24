@@ -19,8 +19,9 @@
         <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
             {% load static %}
             <img src="{% static 'avatar.png'  %}" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-            <span class="w3-right w3-opacity">TODO Add Post Timestamp</span>
-            <h4 class="post-user">TODO Add Post Username</h4><br>
+            <span class="w3-right w3-opacity"> {{ post.timestamp }} </span>
+            <h4 class="post-user"> {{ post.owner.user }} </h4><br>
+            <p> {{ post.content }} </p>
             <hr class="w3-clear">
 
             <!-- TODO Objective 10: Add Post id and likes count -->
@@ -36,7 +37,7 @@
 
 {% block right_column %}
     <!-- TODO Objective 7: use user_info object to render friends -->
-    {% for friend in user_info %}
+    {% for friend in user_info.friends.all %}
       <div class="w3-card w3-round w3-white w3-center">
         <div class="w3-container">
           <p>Friend</p>

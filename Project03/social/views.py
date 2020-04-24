@@ -56,36 +56,36 @@ def account_view(request):
             user = form.save()
             update_session_auth_hash(request,user)
             return redirect('social:account_view')
-        oldemployment = user_info.employment
-        newemployment = request.POST['employment']
-        if oldemployment != newemployment:
-            user_info.employment = newemployment
-        oldlocation = user_info.location
-        newlocation = request.POST['location']
-        if oldlocation != newlocation:
-            user_info.location = newlocation
-        oldbirthday = user_info.birthday
-        newbirthday = request.POST['birthday']
-        if oldbirthday != newbirthday:
-            user_info.birthday = newbirthday
-        interestChecker = 0
-        newinterest = request.POST['interest']
-        if newinterest == "":
+        oldEmployment = user_info.employment
+        newEmployment = request.POST['employment']
+        if oldEmployment != newEmployment:
+            user_info.employment = newEmployment
+        oldLocation = user_info.location
+        newLocation = request.POST['location']
+        if oldLocation != newLocation:
+            user_info.location = newLocation
+        oldBirthday = user_info.birthday
+        newBirthday = request.POST['birthday']
+        if oldBirthday != newBirthday:
+            user_info.birthday = newBirthday
+        interest = 0
+        newInterest = request.POST['interest']
+        if newInterest == "":
             pass
         else:
             for interest in user_info.interests.all():
-                if interest.label == newinterest:
-                    interestChecker = 1
-            if interestChecker == 0:
+                if interest.label == newInterest:
+                    interest = 1
+            if interest == 0:
                 checkInterest = 0
                 for interest in models.Interest.objects.all():
-                    if interest.label == newinterest:
+                    if interest.label == newInterest:
                         checkInterest = 1
                 if checkInterest == 0:
-                    models.Interest.objects.create(label=newinterest)
-                    user_info.interests.add(newinterest)
+                    models.Interest.objects.create(label=newInterest)
+                    user_info.interests.add(newInterest)
                 else:
-                    user_info.interests.add(newinterest)       
+                    user_info.interests.add(newInterest)       
         user_info.save()
     else:
         form = PasswordChangeForm(request.user)
@@ -114,7 +114,7 @@ def people_view(request):
         numberOfPeople = request.session.get('counter',1)
         people = []
         all_people = []
-        
+
         for person in models.UserInfo.objects.all():
             if person not in user_info.friends.all() and person.user != user_info.user:
                 people += [person]
@@ -122,7 +122,7 @@ def people_view(request):
             if len(people) <= number:
                 pass
             else:
-                all_people += [people[num]]
+                all_people += [people[number]]
 
         # TODO Objective 5: create a list of all friend requests to current user
         friend_requests = []
@@ -264,14 +264,13 @@ def friend_request_view(request):
                     people += [person]
             toUser = people[0]
             userThere = 0
-             
+
             for request in models.FriendRequest.objects.all():
                 if request.to_user == toUser and request.from_user == user_info:
                     userThere = 1
             if userThere == 0:
                 friend = models.FriendRequest(to_user=userThere,from_user=user_info)
                 friend.save()
-                    
             # return status='success'
             return HttpResponse()
         else:
@@ -300,7 +299,6 @@ def accept_decline_view(request):
         data = decision[0]
         username = decision[2:]
         if request.user.is_authenticated:
-           
             # TODO Objective 6: delete FriendRequest entry and update friends in both Users
             user_info = models.UserInfo.objects.get(user=request.user)
             people = []
@@ -308,7 +306,6 @@ def accept_decline_view(request):
                 if str(person.user) == username:
                     people += [person]
             fromUser = people[0]
-            
             if data == "A":
                 user_info.friends.add(fromUser)
                 fromUser.friends.add(user_info)
