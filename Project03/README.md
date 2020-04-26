@@ -12,7 +12,7 @@ Run locally with
 Run on mac1xa3.ca with
 `python manage.py runserver localhost:10072`
 
-Log in with lalaland_123, password: #Umoklol12
+Log in with lalaland_123, password: Heythere123
 
 ## Objectives
 
